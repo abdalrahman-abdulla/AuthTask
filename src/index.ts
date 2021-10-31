@@ -1,6 +1,5 @@
 import * as express from "express";
 import { PrismaClient } from "@prisma/client";
-//import xlsx from "xlsx";
 import v1 from "../route/v1";
 const prisma = new PrismaClient();
 const app = express();
