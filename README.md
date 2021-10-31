@@ -4,8 +4,8 @@ project for auth task
 - clone this repo
 - run ```npm i``` 
 - configure project with your mysql database in .env file 
-- run ```npx prisma migrate dev --name init ``` to migrate table
-- now run Project ```npm run start```
+- run ```npx prisma migrate dev --name init ``` to migrate tables
+- now run project ```npm run start```
 
 ## Api For This project 
 - ```/register``` to register new user
