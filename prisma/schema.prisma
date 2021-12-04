@@ -5,17 +5,27 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
-
+ 
 generator client {
   provider = "prisma-client-js"
 }
 
 model User {
-  id      String       @id @default(uuid())
+  id      Int       @id @default(autoincrement())
   email   String   @unique
   name    String 
   password String
+  sender   Message[]    @relation(name: "sender")
+  reciver   Message[]    @relation(name: "reciver")
 }
  
+model Message {
+  id       Int   @id @default(autoincrement())
+  sender   User? @relation(name:"sender",fields: [senderId], references: [id])
+  senderId Int?
+  reciver   User? @relation(name:"reciver",fields: [reciverId], references: [id])
+  reciverId Int?
+  content    String @db.Text
+}
 
 

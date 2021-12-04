@@ -33,7 +33,7 @@ export default class AuthController {
         email: body.email,
       },
     });
-    // if exists but not verified
+    // if exists 
     if (user) {
       return errRes(res, `User ${body.email} is already exist`);
     } else {
@@ -49,7 +49,7 @@ export default class AuthController {
     let token = jwt.sign({ id: user.id }, CONFIG.jwtUserSecret);
 
     // return res
-    return okRes(res, { token });
+    return okRes(res, { token,user });
   }
 
   /**
